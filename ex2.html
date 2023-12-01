@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tính số ngày trong tháng</title>
+    <style>
+      #month {
+        height: 25px;
+        width: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Kiểm tra số ngày trong một tháng</h2>
+    <input
+      type="text"
+      id="month"
+      placeholder="Nhập vào tháng muốn kiểm tra (số)..."
+      onkeyup="checkForm()"
+    />
+    <div id="daysOfMonth"></div>
+    <script>
+      function checkForm() {
+        const month = parseInt(document.getElementById("month").value);
+        let daysOfMonth;
+        switch (month) {
+          case 1:
+          case 3:
+          case 5:
+          case 7:
+          case 8:
+          case 10:
+          case 12:
+            daysOfMonth = "Tháng bạn vừa nhập có 31 ngày";
+            document.getElementById("daysOfMonth").innerHTML = daysOfMonth;
+            break;
+          case 4:
+          case 6:
+          case 9:
+          case 11:
+            daysOfMonth = "Tháng bạn vừa nhập có 30 ngày";
+            document.getElementById("daysOfMonth").innerHTML = daysOfMonth;
+          case 2:
+            daysOfMonth = "Tháng bạn vừa nhập có 28 hoặc 29 ngày";
+            document.getElementById("daysOfMonth").innerHTML = daysOfMonth;
+
+          default:
+            daysOfMonth = "Dữ liệu nhập chưa đúng, mời nhập lại";
+            document.getElementById("daysOfMonth").innerHTML = daysOfMonth;
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
